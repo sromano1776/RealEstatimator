@@ -268,10 +268,13 @@ while True:
             year_built_value = (year_built-2000)*500
             totalValue = totalValue + year_built_value
             break
-        elif (year_built < 1975):
+        elif (year_built < 1975 and year_built >=1800):
             year_built_value = (1975-year_built)*-500
             totalValue = totalValue + year_built_value
             break
+        elif (year_built<1800):
+            print('\nSorry this estimator cannot the value of houses built before 1800. Please try again!')
+            pass
         else:
             totalValue = totalValue
             break
