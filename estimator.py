@@ -4,6 +4,7 @@ import requests
 import time
 import pprint
 import statistics
+import os
 ## Property Value Estimator 
 ## Takes in user int(input regarding all property details individually to compute the property estimate
 ## Square foot value is determined by the type of room (bedroom, kitchen, bathroom, etc and then the additional sq footage of the house is estimated as the basic sq ft value dependent on condition)
@@ -235,11 +236,7 @@ def getList(dict):
         list.append(key)
     return list
 
-
-
 totalValue = 0
-
-
 
 print("Welcome to the Property Value Estimator.....Please answer some questions!\n\n")
 print("You will be asked about the condition of various aspects of your home. Here is some information to help you.\nPoor is 15% of homes, average is 50% of homes, good is 20% of homes, and excellent is 15% of homes. Typically excellent is reserved for new construction or very recently remodeled homes.\n\n")
@@ -1476,7 +1473,9 @@ with open("results.json", "w") as outfile:
     json.dump(data, outfile)
     input_results = data
 
-with open("C://Users/Sam/Desktop/Graduate/Spring/CPEG 657/Final Project/dict.json") as json_file:
+working_directory=os.path.abspath(os.path.dirname(__file__))
+file_path=working_directory+'\dict.json'
+with open(file_path) as json_file:
     api_results = json.load(json_file)
 
 
